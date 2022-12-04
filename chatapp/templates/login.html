@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+  <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="{% static '/images/login.jpg' %}" id="icon" alt="Login Icon" />
+        </div>
+    
+        <!-- Login Form -->
+        <form method="post">
+          {% csrf_token %}
+          <input type="text" id="login" class="fadeIn second input_tags" name="username" placeholder="Please Enter Email" required>
+          <input type="password" id="password" class="fadeIn third input_tags" name="password" placeholder="Please Enter Password" required>
+          <input type="submit" class="fadeIn fourth" value="Submit">
+        </form>
+        
+        {% if error %}
+        <p style="color:red;">{{error}}</p>
+        {% endif %}
+        <!-- Remind Passowrd -->
+        <!-- <div id="formFooter">
+          <a class="underlineHover" href="#">Forgot Password?</a>
+        </div> -->
+    
+      </div>
+    </div>
+  </body>
+</html>
